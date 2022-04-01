@@ -13,13 +13,9 @@ import 'package:universal_html/html.dart' as html;
 import '../../utils.dart';
 
 part '../../route/route_data.dart';
-
 part 'auto_route_guard.dart';
-
 part 'auto_router_delegate.dart';
-
 part 'navigation_history.dart';
-
 part 'root_stack_router.dart';
 
 typedef RouteDataPredicate = bool Function(RouteData route);
@@ -246,6 +242,16 @@ abstract class RoutingController with ChangeNotifier {
     String fragment = '',
     bool includeAncestors = false,
   });
+
+  Map<String, dynamic> get queryParams {
+    return topRoute.topMatch.queryParams.rawMap;
+  }
+
+  set queryParams(Map<String, dynamic> queryParams) {
+    final router = topMostRouter();
+    router._updateSharedPathData(queryParams: queryParams);
+    router.notifyAll();
+  }
 
   int get stateHash => const ListEquality().hash(currentSegments);
 
