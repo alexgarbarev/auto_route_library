@@ -178,7 +178,7 @@ class AutoTabsRouterState extends State<AutoTabsRouter>
       _index = widget._activeIndex!;
       _animationController.forward(from: 0.0);
       _controller!.setActiveIndex(_index, notify: false);
-      WidgetsBinding.instance?.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         AutoRouterDelegate.of(context).notifyUrlChanged();
       });
     }

@@ -43,7 +43,7 @@ class _AutoRouteNavigatorState extends State<AutoRouteNavigator> {
     if (!ListEquality().equals(newRoutes, _routesSnapshot)) {
       _routesSnapshot = newRoutes;
       widget.router.updateDeclarativeRoutes(newRoutes);
-      WidgetsBinding.instance?.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         delegate.notifyUrlChanged();
       });
     }
