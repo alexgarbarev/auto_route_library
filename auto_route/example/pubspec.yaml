@@ -1,8 +1,6 @@
 name: example
 description: A new Flutter application.
 version: 1.0.0+1
-publish_to: "none"
-
 publish_to: none
 
 environment:
@@ -14,6 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   provider: ^5.0.0
+  url_strategy: ^0.2.0
   auto_route:
     path: ../../auto_route
 
